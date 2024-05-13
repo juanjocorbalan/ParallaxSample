@@ -40,7 +40,7 @@ struct CarouselView: View {
                                 .padding(Settings.titlePadding)
                             }
                             .clipShape(.rect(cornerRadius: Settings.radius))
-                            .shadow(color: .black.opacity(0.6), radius: 4, x: 4, y: 4)
+                            .shadow(color: .primary.opacity(0.6), radius: 4, x: 4, y: 4)
                             .scrollTransition(.interactive, axis: .horizontal) { view, phase in
                                 view.scaleEffect(phase.isIdentity ? 1 : 0.9)
                             }
