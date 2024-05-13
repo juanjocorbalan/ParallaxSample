@@ -14,8 +14,8 @@ struct Place: Identifiable, Hashable {
 }
 
 var places: [Place] = [
-    .init(title: "New York", image: "newyork"),
-    .init(title: "London", image: "london"),
-    .init(title: "Japan", image: "japan"),
-    .init(title: "Rome", image: "rome"),
+    Place(title: "New York", image: "newyork"),
+    Place(title: "London", image: "london"),
+    Place(title: "Tokyo", image: "tokyo"),
+    Place(title: "Rome", image: "rome"),
 ]

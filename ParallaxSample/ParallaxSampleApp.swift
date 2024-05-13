@@ -11,7 +11,7 @@ import SwiftUI
 struct ParallaxSampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CarouselView()
         }
     }
 }
