@@ -11,7 +11,13 @@ import SwiftUI
 struct ParallaxSampleApp: App {
     var body: some Scene {
         WindowGroup {
-            CarouselView()
+            GeometryReader { proxy in
+                VStack {
+                    CarouselView()
+                        .frame(height: proxy.size.height / 2.0)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
         }
     }
 }

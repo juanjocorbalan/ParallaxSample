@@ -10,7 +10,7 @@ import SwiftUI
 struct CarouselView: View {
 
     private struct Settings {
-        static let height: CGFloat = 480.0
+        static let height: CGFloat = 400.0
         static let imagePadding: CGFloat = 32.0
         static let radius: CGFloat = 16.0
         static let spacing: CGFloat = 2.0
@@ -18,7 +18,7 @@ struct CarouselView: View {
     }
 
     var body: some View {
-        GeometryReader(content: { proxy in
+        GeometryReader { proxy in
             ScrollView(.horizontal) {
                 HStack(spacing: Settings.spacing) {
                     ForEach(places) { place in
@@ -28,7 +28,7 @@ struct CarouselView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .offset(x: -(itemProxy.frame(in: .scrollView).minX - Settings.imagePadding))
-                                    .frame(minWidth: proxy.size.width)
+                                    .frame(minWidth: proxy.size.width + proxy.safeAreaInsets.leading + proxy.safeAreaInsets.trailing)
                                     .frame(width: itemProxy.size.width, height: itemProxy.size.height)
                                 VStack {
                                     Spacer()
@@ -54,11 +54,11 @@ struct CarouselView: View {
             }
             .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
-        })
-        .frame(height: Settings.height)
+        }
     }
 }
 
 #Preview {
     CarouselView()
+        .frame(height: 480.0)
 }
